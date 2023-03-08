@@ -17,7 +17,7 @@ pipeline{
                             sh './gradlew sonarqube'
                     }
 
-                    /*timeout(time: 1, unit: 'HOURS') {
+                    timeout(time: 1, unit: 'HOURS') {
                       def qg = waitForQualityGate()
                       if (qg.status != 'OK') {
                            error "Pipeline aborted due to quality gate failure: ${qg.status}"*/
@@ -27,7 +27,7 @@ pipeline{
                 }  
             }
         }
-        /*stage("docker build & docker push"){
+        stage("docker build & docker push"){
             steps{
                 script{
                     withCredentials([string(credentialsId: 'docker_pass', variable: 'docker_password')]) {
